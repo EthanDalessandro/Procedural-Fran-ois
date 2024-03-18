@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public enum Direction
 {
@@ -16,8 +17,8 @@ public class MazeGenerator : MonoBehaviour
 
     public CellProperties[,] gridCells;
     private int visitedCount = 0;
-    public CellProperties currentCell;
-    public Vector2 currentCellCoords;
+    private CellProperties currentCell;
+    private Vector2 currentCellCoords;
 
     public Vector2 gridSize;
 
@@ -27,6 +28,7 @@ public class MazeGenerator : MonoBehaviour
 
     private void Start()
     {
+        Debug.Break();
         InitializeMaze();
         stepByStepBoolTreshold = true;
     }
@@ -196,6 +198,7 @@ public class MazeGenerator : MonoBehaviour
             currentCell.CheckWichWallToDeactivate();
             previousCell.CheckWichWallToDeactivate();
         }
+        currentCell.transform.DOLocalMoveY(currentCell.transform.position.y + 0.1f, 0.25f).SetLoops(2, LoopType.Yoyo);
     }
 
     public bool CheckForAllVisitedCell()
