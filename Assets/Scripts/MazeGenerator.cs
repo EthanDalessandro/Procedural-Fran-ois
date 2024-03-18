@@ -1,7 +1,7 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using DG.Tweening;
 
 public enum Direction
 {
@@ -11,9 +11,14 @@ public enum Direction
 public class MazeGenerator : MonoBehaviour
 {
     public GameObject prefabOfTheCell;
+    public Transform player;
 
     public List<CellProperties> cellBag;
     public List<CellProperties> visitedCellBag;
+
+    public ScriptableObjectSettings gridSizeX;
+    public ScriptableObjectSettings gridSizeY;
+    public ScriptableObjectSettings cooldownForStepByStep;
 
     public CellProperties[,] gridCells;
     private int visitedCount = 0;
@@ -26,9 +31,15 @@ public class MazeGenerator : MonoBehaviour
     public float stepCooldown;
     private bool stepByStepBoolTreshold;
 
+    private void Awake()
+    {
+        gridSize.x = (int)gridSizeX.floatToStock;
+        gridSize.y = (int)gridSizeY.floatToStock;
+        stepCooldown = cooldownForStepByStep.floatToStock;
+    }
+
     private void Start()
     {
-        Debug.Break();
         InitializeMaze();
         stepByStepBoolTreshold = true;
     }
@@ -132,6 +143,8 @@ public class MazeGenerator : MonoBehaviour
                 currentCell = visitedCellBag[visitedCellBag.Count - visitedCount];
             }
         }
+
+        player.position = new Vector3(currentCell.cellCoords.x, 0, currentCell.cellCoords.y);
     }
 
     public CellProperties ReturnASpecificCell(int x, int y)
