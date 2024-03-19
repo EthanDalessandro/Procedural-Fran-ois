@@ -6,6 +6,7 @@ public class CellProperties : MonoBehaviour
 
     [Header("cell Specificities")]
     public bool isHavingEnemy;
+    public bool isHavingAmmo;
 
     [Header("Cell Maze Helpful Stats")]
     public bool isVisited;
