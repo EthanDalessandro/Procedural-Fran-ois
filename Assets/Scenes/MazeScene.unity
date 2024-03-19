@@ -3357,7 +3357,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1649731963}
   m_Layer: 0
-  m_Name: Player
+  m_Name: CAMERA TARGET
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3963,5 +3963,5 @@ SceneRoots:
   - {fileID: 1166555117}
   - {fileID: 2090632548}
   - {fileID: 2087671670}
-  - {fileID: 1649731963}
   - {fileID: 1743564693}
+  - {fileID: 1649731963}
