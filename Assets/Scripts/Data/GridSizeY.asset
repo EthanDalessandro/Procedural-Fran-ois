@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8103e6d840d2b541a0a56ea1351423f, type: 3}
   m_Name: GridSizeY
   m_EditorClassIdentifier: 
-  floatToStock: 5
+  floatToStock: 50
