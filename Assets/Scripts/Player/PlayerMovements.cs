@@ -27,4 +27,9 @@ public class PlayerMovements : MonoBehaviour
         _playerRb.velocity = new Vector3(_moveAction.x * _movementSpeed, _playerRb.velocity.y,_moveAction.y * _movementSpeed);
     }
     
+    public void DetectEnemy(GameObject detectedEnemy)
+    {
+        
+    }
+    
 }
