@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -12,6 +11,7 @@ public class LegDataInfo
 
     [SerializeField] public float _animationTime = 0.2f;
     [SerializeField] public AnimationCurve _animationCurve;
+    [SerializeField] public AnimationCurve _animationCurveLiftLegY;
 
     private bool _isAnimated = false;
     private float _animationTimeRemaining = 0;
@@ -33,6 +33,7 @@ public class LegDataInfo
             _animationTimeRemaining -= Time.deltaTime;
 
             _rigTargetTransform.position = Vector3.Lerp(_startAnimationPosition, _baseTransform.position, _animationCurve.Evaluate(1 - _animationTimeRemaining / _animationTime));
+            _rigTargetTransform.position = new Vector3(_rigTargetTransform.position.x, _rigTargetTransform.position.y + 1 * _animationCurveLiftLegY.Evaluate(1 - _animationTimeRemaining / _animationTime), _rigTargetTransform.position.z);
 
             if (_animationTimeRemaining <= 0)
             {
@@ -78,7 +79,7 @@ public class LegsController : MonoBehaviour
                 countMovingLegs++;
         }
 
-        if (countMovingLegs > 2)
+        if (countMovingLegs > 1)
             return;
 
         foreach (LegDataInfo leg in _legs)
