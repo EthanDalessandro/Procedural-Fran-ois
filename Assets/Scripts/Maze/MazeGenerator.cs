@@ -2,6 +2,7 @@ using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public enum Direction
 {
@@ -11,7 +12,11 @@ public enum Direction
 public class MazeGenerator : MonoBehaviour
 {
     public GameObject prefabOfTheCell;
-    public Transform player;
+    public GameObject playerPrefab;
+
+    public int keyToSpawnInTotal;
+    public int enemyToSpawnInTotal;
+    public int ammoToSpawnInTotal;
 
     public List<CellProperties> cellBag;
     public List<CellProperties> visitedCellBag;
@@ -42,8 +47,44 @@ public class MazeGenerator : MonoBehaviour
     {
         InitializeMaze();
         stepByStepBoolTreshold = true;
+        if (visitedCellBag[visitedCellBag.Count - 1] != null && stepByStep == false)
+        {
+            GameObject player = Instantiate(playerPrefab, visitedCellBag[Random.Range(0, visitedCellBag.Count - 1)].transform.position, Quaternion.identity);
+            player.transform.position = new Vector3(player.transform.position.x, -0.45f, player.transform.position.z);
+        }
+        SpawnEntityInCellsRandomly();
+        visitedCellBag.Last().CheckWichFinalWallToDeactivate();
     }
 
+
+    public void SpawnEntityInCellsRandomly()
+    {
+        while (ammoToSpawnInTotal > 0 || enemyToSpawnInTotal > 0 || keyToSpawnInTotal > 0)
+        {
+            int choosedCellIndex = Random.Range(0, visitedCellBag.Count - 1);
+
+            if (visitedCellBag[choosedCellIndex].isHavingAmmo == false && visitedCellBag[choosedCellIndex].isHavingEnemy == false && visitedCellBag[choosedCellIndex].isHavingKey == false)
+            {
+                int x = Random.Range(0, 3);
+                if (x == 0 && ammoToSpawnInTotal > 0)
+                {
+                    visitedCellBag[choosedCellIndex].isHavingAmmo = true;
+                    ammoToSpawnInTotal--;
+                }
+                if (x == 1 && enemyToSpawnInTotal > 0)
+                {
+                    visitedCellBag[choosedCellIndex].isHavingEnemy = true;
+                    enemyToSpawnInTotal--;
+                }
+                if (x == 2 && keyToSpawnInTotal > 0)
+                {
+                    visitedCellBag[choosedCellIndex].isHavingKey = true;
+                    keyToSpawnInTotal--;
+                }
+                visitedCellBag[choosedCellIndex].CheckIfEntitySpawn();
+            }
+        }
+    }
     private void Update()
     {
         if (stepByStep == true && stepByStepBoolTreshold == true)
@@ -144,7 +185,7 @@ public class MazeGenerator : MonoBehaviour
             }
         }
 
-        player.position = new Vector3(currentCell.cellCoords.x, 0, currentCell.cellCoords.y);
+        //player.position = new Vector3(currentCell.cellCoords.x, 0, currentCell.cellCoords.y);
     }
 
     public CellProperties ReturnASpecificCell(int x, int y)

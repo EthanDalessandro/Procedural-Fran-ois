@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1597,7 +1597,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabOfTheCell: {fileID: 5487017153760663017, guid: f19f27751e2e1cf4f8c85dc080a63ebf,
     type: 3}
-  player: {fileID: 1649731963}
+  playerPrefab: {fileID: 1548018382619240180, guid: 4b9e55ba0567f08429187bf299bdc1b6,
+    type: 3}
+  keyToSpawnInTotal: 4
+  enemyToSpawnInTotal: 20
+  ammoToSpawnInTotal: 10
   cellBag: []
   visitedCellBag: []
   gridSizeX: {fileID: 11400000, guid: d4008c74d3a2293469b6d8d9c0a46bb7, type: 2}
@@ -1605,7 +1609,7 @@ MonoBehaviour:
   cooldownForStepByStep: {fileID: 11400000, guid: 6881d34a7121a6e499ab67933f5d453e,
     type: 2}
   gridSize: {x: 50, y: 50}
-  stepByStep: 1
+  stepByStep: 0
   stepCooldown: 0
 --- !u!1 &816508339
 GameObject:
