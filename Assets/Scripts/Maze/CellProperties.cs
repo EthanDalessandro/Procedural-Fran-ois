@@ -101,19 +101,19 @@ public class CellProperties : MonoBehaviour
         {
             isHavingEnemy = false;
             isHavingKey = false;
-            Instantiate(ammoPrefab, transformSpawn.position, Quaternion.identity);
+            Instantiate(ammoPrefab, transformSpawn.position, Quaternion.identity, transform);
         }
         if (isHavingEnemy)
         {
             isHavingAmmo = false;
             isHavingKey = false;
-            Instantiate(enemyPrefab, transformSpawn.position, Quaternion.identity);
+            Instantiate(enemyPrefab, transformSpawn.position, Quaternion.identity, transform);
         }
         if (isHavingKey)
         {
             isHavingAmmo = false;
             isHavingEnemy = false;
-            Instantiate(keyPrefab, transformSpawn.position, Quaternion.identity);
+            Instantiate(keyPrefab, transformSpawn.position, Quaternion.identity, transform);
         }
     }
 }
