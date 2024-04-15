@@ -33,7 +33,4 @@ public class PlayerMovements : MonoBehaviour
     {
         _playerWeapon.Shoot();
     }
-    
-    
-    
 }

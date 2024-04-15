@@ -84,10 +84,13 @@ public class LegsController : MonoBehaviour
 
         foreach (LegDataInfo leg in _legs)
         {
-            if (Vector3.Distance(leg._baseTransform.position, leg._rigTargetTransform.position) > _maxDistanceLegTarget)
+            if(leg._rigTargetTransform != null)
             {
-                leg.StartAnimation();
-                return;
+                if (Vector3.Distance(leg._baseTransform.position, leg._rigTargetTransform.position) > _maxDistanceLegTarget)
+                {
+                    leg.StartAnimation();
+                    return;
+                }
             }
         }
     }
