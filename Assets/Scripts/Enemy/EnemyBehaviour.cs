@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -8,6 +9,7 @@ public class EnemyBehaviour : MonoBehaviour
 {
     [SerializeField] private NavMeshAgent _taget;
     [SerializeField] private float _distanceToLoseAggro = 15;
+    [SerializeField] private GameObject _damageZone;
     private GameObject _targetEnemy;
     private bool _isEnemyDetected;
     private Vector3 _startPosition;
@@ -37,5 +39,28 @@ public class EnemyBehaviour : MonoBehaviour
             _taget.SetDestination(_startPosition);
         }
         
+    }
+
+    public void Attack()
+    {
+        StartCoroutine(DoAttack());
+    }
+
+    IEnumerator DoAttack()
+    {
+        _taget.enabled = false;
+        
+        yield return new WaitForSeconds(.5f);
+        
+        Instantiate(_damageZone, transform.position, Quaternion.identity);
+        
+        yield return new WaitForSeconds(1f);
+        
+        _taget.enabled = true;
+    }
+
+    public void IsKilled()
+    {
+        Destroy(this.gameObject);
     }
 }

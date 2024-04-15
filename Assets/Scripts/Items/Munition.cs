@@ -9,7 +9,7 @@ public class Munition : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            PlayerWeapon playerWeapon = other.GetComponent<PlayerWeapon>();
+            PlayerWeapon playerWeapon = other.GetComponentInParent<PlayerWeapon>();
             if (playerWeapon._haveMunition == false)
             {
                 playerWeapon._haveMunition = true;
