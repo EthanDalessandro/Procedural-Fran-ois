@@ -21,13 +21,11 @@ public class DamageZonePlayer : MonoBehaviour
     {
         if (other.CompareTag("Enemy"))
         {
-            print("HitEnemy");
-            EnemyLife playerLife = other.GetComponent<EnemyLife>();
-            playerLife.HurtEnemy(100);
+            EnemyLife enemyLife = other.GetComponent<EnemyLife>();
+            enemyLife.HurtEnemy(100);
         }
         else if (other.CompareTag("Player"))
         {
-           print("HitPlayer");
            PlayerLife playerLife = other.GetComponentInParent<PlayerLife>();
            playerLife.HurtPlayer(50);
         }

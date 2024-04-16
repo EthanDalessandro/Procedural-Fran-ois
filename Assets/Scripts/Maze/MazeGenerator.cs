@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using Unity.AI.Navigation;
 
 public enum Direction
 {
@@ -13,6 +14,7 @@ public class MazeGenerator : MonoBehaviour
 {
     public GameObject prefabOfTheCell;
     public GameObject playerPrefab;
+    public NavMeshSurface groundNavMesh;
 
     public int keyToSpawnInTotal;
     public int enemyToSpawnInTotal;
@@ -54,6 +56,8 @@ public class MazeGenerator : MonoBehaviour
         }
         SpawnEntityInCellsRandomly();
         visitedCellBag.Last().CheckWichFinalWallToDeactivate();
+        
+        groundNavMesh.BuildNavMesh();
     }
 
 
@@ -105,10 +109,10 @@ public class MazeGenerator : MonoBehaviour
         {
             for (int j = 0; j < gridSize.y; j++)
             {
-                GameObject cellInstantiated = Instantiate(prefabOfTheCell, new Vector3(i, 0, j), Quaternion.identity, transform);//On intantie la cellule dans le transform du maze Generator
-                cellInstantiated.GetComponent<CellProperties>().cellCoords = new Vector2(i, j);// Set les coordonnées de la cellule créer
+                GameObject cellInstantiated = Instantiate(prefabOfTheCell, new Vector3(i * 10, 2.5f, j * 10), Quaternion.identity, transform);//On intantie la cellule dans le transform du maze Generator
+                cellInstantiated.GetComponent<CellProperties>().cellCoords = new Vector2(i, j);// Set les coordonnï¿½es de la cellule crï¿½er
                 gridCells[i, j] = cellInstantiated.GetComponent<CellProperties>();
-                cellBag.Add(cellInstantiated.GetComponent<CellProperties>()); //Ajoute dans le sac la cellule créer
+                cellBag.Add(cellInstantiated.GetComponent<CellProperties>()); //Ajoute dans le sac la cellule crï¿½er
             }
         }
 

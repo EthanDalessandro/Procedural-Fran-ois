@@ -48,7 +48,7 @@ public class EnemyBehaviour : MonoBehaviour
 
     IEnumerator DoAttack()
     {
-        _taget.enabled = false;
+        _taget.speed = 0;
         
         yield return new WaitForSeconds(.5f);
         
@@ -56,7 +56,7 @@ public class EnemyBehaviour : MonoBehaviour
         
         yield return new WaitForSeconds(1f);
         
-        _taget.enabled = true;
+        _taget.speed = 5;
     }
 
     public void IsKilled()

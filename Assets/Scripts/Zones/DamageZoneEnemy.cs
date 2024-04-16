@@ -24,7 +24,6 @@ public class DamageZoneEnemy : MonoBehaviour
     {
         if (other.CompareTag("Player") && !_hitPlayer)
         {
-            print("HitPlayer");
             PlayerLife playerLife = other.GetComponentInParent<PlayerLife>();
             playerLife.HurtPlayer(50);
             _hitPlayer = true;  

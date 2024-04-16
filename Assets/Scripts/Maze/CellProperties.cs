@@ -34,7 +34,7 @@ public class CellProperties : MonoBehaviour
     private void Start()
     {
         CheckWichWallToDeactivate();
-        CheckIfEntitySpawn();
+        //CheckIfEntitySpawn();
     }
 
 
@@ -103,13 +103,13 @@ public class CellProperties : MonoBehaviour
             isHavingKey = false;
             Instantiate(ammoPrefab, transformSpawn.position, Quaternion.identity, transform);
         }
-        if (isHavingEnemy)
+        else if (isHavingEnemy)
         {
             isHavingAmmo = false;
             isHavingKey = false;
             Instantiate(enemyPrefab, transformSpawn.position, Quaternion.identity, transform);
         }
-        if (isHavingKey)
+        else if (isHavingKey)
         {
             isHavingAmmo = false;
             isHavingEnemy = false;

@@ -8,9 +8,9 @@ public class Key : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            GameObject mazeDoor = GameObject.FindGameObjectWithTag("Door");
-            Door scriptDoor = mazeDoor.GetComponent<Door>();
-            scriptDoor.OpenDoor();
+            GameObject mazePortal = GameObject.FindGameObjectWithTag("Portal");
+            FinishPortal scriptPortal = mazePortal.GetComponent<FinishPortal>();
+            scriptPortal.KeyCounter--;
             Destroy(gameObject);
         }
     }

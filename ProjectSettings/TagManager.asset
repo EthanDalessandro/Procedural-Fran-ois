@@ -6,7 +6,8 @@ TagManager:
   tags:
   - Enemy
   - Wall
-  - Door
+  - EnemyTargetPoint
+  - Portal
   layers:
   - Default
   - TransparentFX

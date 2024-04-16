@@ -7,7 +7,7 @@ public class DetectionZonePlayer : MonoBehaviour
 {
     private void OnTriggerStay(Collider other)
     {
-        if (other.CompareTag("Enemy"))
+        if (other.CompareTag("EnemyTargetPoint"))
         {
             Vector3 heading = other.transform.position - this.transform.position;
             float distance = heading.magnitude;
@@ -17,7 +17,7 @@ public class DetectionZonePlayer : MonoBehaviour
             RaycastHit hit;
             if (Physics.Raycast(transform.position, direction, out hit))
             {
-                if (!other.CompareTag("Enemy")) return;
+                if (!other.CompareTag("EnemyTargetPoint")) return;
                 
                 PlayerWeapon attackScript = GetComponentInParent<PlayerWeapon>();
                 attackScript.EnemyInRange(other.transform.gameObject);
@@ -26,7 +26,7 @@ public class DetectionZonePlayer : MonoBehaviour
     }
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Enemy"))
+        if (other.CompareTag("EnemyTargetPoint"))
         {
             PlayerWeapon attackScript = GetComponentInParent<PlayerWeapon>();
             attackScript.ResetVision();

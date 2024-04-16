@@ -123,6 +123,89 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &186218479
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4966683539901629691, guid: f19f27751e2e1cf4f8c85dc080a63ebf,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4966683539901629691, guid: f19f27751e2e1cf4f8c85dc080a63ebf,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4966683539901629691, guid: f19f27751e2e1cf4f8c85dc080a63ebf,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4966683539901629691, guid: f19f27751e2e1cf4f8c85dc080a63ebf,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -21.21
+      objectReference: {fileID: 0}
+    - target: {fileID: 4966683539901629691, guid: f19f27751e2e1cf4f8c85dc080a63ebf,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4966683539901629691, guid: f19f27751e2e1cf4f8c85dc080a63ebf,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -6.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 4966683539901629691, guid: f19f27751e2e1cf4f8c85dc080a63ebf,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4966683539901629691, guid: f19f27751e2e1cf4f8c85dc080a63ebf,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4966683539901629691, guid: f19f27751e2e1cf4f8c85dc080a63ebf,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4966683539901629691, guid: f19f27751e2e1cf4f8c85dc080a63ebf,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4966683539901629691, guid: f19f27751e2e1cf4f8c85dc080a63ebf,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4966683539901629691, guid: f19f27751e2e1cf4f8c85dc080a63ebf,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4966683539901629691, guid: f19f27751e2e1cf4f8c85dc080a63ebf,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5487017153760663017, guid: f19f27751e2e1cf4f8c85dc080a63ebf,
+        type: 3}
+      propertyPath: m_Name
+      value: Maze Cell
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f19f27751e2e1cf4f8c85dc080a63ebf, type: 3}
 --- !u!1 &381730609
 GameObject:
   m_ObjectHideFlags: 0
@@ -410,6 +493,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 5489621128068752071, guid: 4b9e55ba0567f08429187bf299bdc1b6,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5489621128068752071, guid: 4b9e55ba0567f08429187bf299bdc1b6,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5489621128068752071, guid: 4b9e55ba0567f08429187bf299bdc1b6,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5489621128068752071, guid: 4b9e55ba0567f08429187bf299bdc1b6,
         type: 3}
@@ -943,3 +1041,4 @@ SceneRoots:
   - {fileID: 6660731232419100093}
   - {fileID: 1240182136}
   - {fileID: 381730613}
+  - {fileID: 186218479}
