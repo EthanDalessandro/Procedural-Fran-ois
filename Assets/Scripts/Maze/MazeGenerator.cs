@@ -13,7 +13,7 @@ public enum Direction
 public class MazeGenerator : MonoBehaviour
 {
     public GameObject prefabOfTheCell;
-    public GameObject playerPrefab;
+    public GameObject playerPrefab, portailPrefab;
     public NavMeshSurface groundNavMesh;
 
     public int keyToSpawnInTotal;
@@ -55,7 +55,7 @@ public class MazeGenerator : MonoBehaviour
             player.transform.position = new Vector3(player.transform.position.x, -0.45f, player.transform.position.z);
         }
         SpawnEntityInCellsRandomly();
-        visitedCellBag.Last().CheckWichFinalWallToDeactivate();
+        Instantiate(portailPrefab, visitedCellBag[0].transformSpawn.position , Quaternion.identity, visitedCellBag[0].transform);
         
         groundNavMesh.BuildNavMesh();
     }

@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 7267690613536412189}
   - component: {fileID: 1246567623688808116}
   - component: {fileID: 677714729618017830}
+  - component: {fileID: 8473060159051332634}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -209,6 +210,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _life: 100
+--- !u!114 &8473060159051332634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1548018382619240180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 006bdf8d0ba92414eaadf327f3ecc3bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1684183241267950387
 GameObject:
   m_ObjectHideFlags: 0
@@ -1892,7 +1905,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _haveMunition: 1
-  _cannonMovespeed: 2
+  _cannonMovespeed: 3
   _enemyShootRange: 12.5
   _cannon: {fileID: 6097230054386773430}
   _bulletToShoot: {fileID: 8895840663531317638, guid: eeff7e5e4c82c44418031cd265693379,

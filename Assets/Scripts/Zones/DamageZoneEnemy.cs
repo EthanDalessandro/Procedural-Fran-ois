@@ -26,7 +26,7 @@ public class DamageZoneEnemy : MonoBehaviour
         {
             PlayerLife playerLife = other.GetComponentInParent<PlayerLife>();
             playerLife.HurtPlayer(50);
-            _hitPlayer = true;  
+            _hitPlayer = true;
         }
     }
 }

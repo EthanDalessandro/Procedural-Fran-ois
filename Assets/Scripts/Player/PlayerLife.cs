@@ -5,6 +5,12 @@ using UnityEngine;
 public class PlayerLife : MonoBehaviour
 {
     [SerializeField] public int _life = 100;
+    private SwitchScene _sceneManager;
+    
+    private void Awake()
+    {
+        _sceneManager = GetComponent<SwitchScene>();
+    }
     public void HurtPlayer(int damages)
     {
         //LoseHP
@@ -12,8 +18,7 @@ public class PlayerLife : MonoBehaviour
         _life -= damages;
         if (_life <= 0)
         {
-            //You Lost
-            //Return to Menu
+            _sceneManager.SceneToSwitchTo("MainMenu");
         }
     }
 }

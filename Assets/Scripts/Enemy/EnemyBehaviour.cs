@@ -11,7 +11,7 @@ public class EnemyBehaviour : MonoBehaviour
     [SerializeField] private float _distanceToLoseAggro = 15;
     [SerializeField] private GameObject _damageZone;
     private GameObject _targetEnemy;
-    private bool _isEnemyDetected;
+    private bool _isEnemyDetected, _isAttacking;
     private Vector3 _startPosition;
 
     private void Awake()
@@ -43,20 +43,23 @@ public class EnemyBehaviour : MonoBehaviour
 
     public void Attack()
     {
+        if (_isAttacking) return;
         StartCoroutine(DoAttack());
     }
 
     IEnumerator DoAttack()
     {
         _taget.speed = 0;
+        _isAttacking = true;
         
         yield return new WaitForSeconds(.5f);
         
-        Instantiate(_damageZone, transform.position, Quaternion.identity);
+        Instantiate(_damageZone, transform.position, Quaternion.identity, transform);
         
         yield return new WaitForSeconds(1f);
-        
+
         _taget.speed = 5;
+        _isAttacking = false;
     }
 
     public void IsKilled()
